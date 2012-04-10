@@ -1,5 +1,7 @@
+<%@ page import="ie.cit.video.Videostore"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,10 +10,14 @@
 </head>
 <body>
 
-Movie 1 <br />
-Movie 2 <br />
-Movie 3 <br />
-Movie 4 <br />
+	<form method="post">
+		Text: <select name="text">
+			<option>Movie 1</option>
+			<option>Movie 2</option>
+			<option>Movie 3</option>
+		</select>
+		<input type="submit">
+	</form>
 
 </body>
 </html>

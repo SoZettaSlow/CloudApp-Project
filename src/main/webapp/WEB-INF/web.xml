@@ -32,7 +32,8 @@
 	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>videostore.html</welcome-file>
+		<!--  <welcome-file>productcatalog.html</welcome-file> -->
+		<welcome-file>videostore.html</welcome-file>	
 	</welcome-file-list>
 	
 
