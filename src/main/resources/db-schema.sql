@@ -1,0 +1,1 @@
+create table VIDEO(id serial, text varchar, stocknum int, primary key(id));
