@@ -1,0 +1,42 @@
+
+h1, h2 {
+	text-align:center;
+}
+
+#collection {
+	text-align:center;
+	
+}
+
+#collection img {
+	width:142px;
+	height:200px;
+}
+
+#text {
+	text-align:center;
+	
+}
+
+#text input {
+	text-align:left;
+}
+
+#quantity {
+	text-align:center;
+	margin-top:60px;
+}
+
+#option1, #option2, #option3, #option4, #option5 {
+	
+	margin-left:90px;
+	display:inline;
+}
+
+
+
+form#products img {
+	width:142px;
+	height:200px;
+	margin-left:20px;
+}

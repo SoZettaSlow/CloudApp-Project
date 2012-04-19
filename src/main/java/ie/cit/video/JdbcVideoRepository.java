@@ -29,9 +29,9 @@ public class JdbcVideoRepository {
 	}
 
 	public Videostore get(int id) {
+		// System.out.println("cccc " +id);
 		return jdbcTemplate.queryForObject(
-				"select id, text, stocknum from VIDEO where id=?",
-				new VideoStoreMapper());
+				"select id, text, stocknum from VIDEO where id=?", new VideoStoreMapper(), id);
 	}
 	
 	public List<Videostore> getAll(){

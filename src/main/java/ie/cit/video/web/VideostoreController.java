@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@RequestMapping("videostore")
+@RequestMapping(value={"videostore", "productcatalog"})
+
 @Controller
 public class VideostoreController {
 
@@ -24,7 +25,7 @@ public class VideostoreController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void createVideo(Model model, @RequestParam String text, @RequestParam int stocknum){
+	public String addToBasket(Model model, @RequestParam String text, @RequestParam int stocknum){
 		
 		Videostore videostore = new Videostore();
 		videostore.setText(text);
@@ -32,34 +33,37 @@ public class VideostoreController {
 		repo.save(videostore);
 		model.addAttribute("videostore", repo.getAll());
 		
+		return "videostore";
 	}
+	
+	@RequestMapping(value="videostore", method = RequestMethod.GET)
+	public String returnToPage() {
+		
+		return "productcatalog";
+		
+	}
+	
 	
 	@RequestMapping(method = RequestMethod.DELETE)
-	public void deleteVideo(Model model, @RequestParam int videostoreId) {
-		repo.delete(videostoreId);
+	public String deleteItem(Model model, @RequestParam int videoId) {
+
+		repo.delete(videoId);
 		model.addAttribute("videostore", repo.getAll());
+		
+		return "videostore";
 		
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
-	public void increaseVideoStock(Model model, @RequestParam int videostoreId) {
-		Videostore videostore = repo.get(videostoreId);
-		int stocknum = videostore.getStocknum();
+	public String increaseStock(Model model, @RequestParam int videoId, @RequestParam int stocknum) {
+		//System.out.println("dddd" +videoId+ " aaaa " +stocknum);
+		Videostore videostore = repo.get(videoId);
+		videostore.setStocknum(stocknum);
 		
-		//videostore.setStocknum(stocknum + 1);
 		repo.update(videostore);
 		model.addAttribute("videostore", repo.getAll());
+		
+		return "videostore";
 	}
-	/*
-	@RequestMapping(method = RequestMethod.PUT)
-	public void decreaseVideoStock(Model model, @RequestParam int videostoreId) {
-		Videostore videostore = repo.get(videostoreId);
-		int stocknum = videostore.getStocknum();
-		
-		videostore.setStocknum(stocknum -1);
-		repo.update(videostore);
-		model.addAttribute("videostore", repo.getAll());
-	}*/
-
 
 }

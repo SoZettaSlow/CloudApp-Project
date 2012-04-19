@@ -7,20 +7,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script>
+
+$(document).ready(function()
+{
+		for(var j=0;j<=5;j++)
+		{
+			var e = document.getElementById('dropdown_menu_'+j);
+			
+			if(e != null){
+				//alert(e.options[j].value+ " " +e.options[j].text);
+				//alert(j);
+				document.getElementById("dropdown_menu_"+j).value = j;
+			}
+		}
+});
+
+</script>
 <title>CIT Video Store</title>
 </head>
 <body>
 	<h1>CIT Video Store</h1>
-	<h2>Our Current Video Selection</h2>
-	
+	<h2>Your Basket</h2>
 	<c:forEach items="${videostore}" var="video" varStatus="row">
 	
-		Product ${video.text} <br />
-		${video.stocknum} Items in the Basket
+		Product: ${video.text} <br />
 
 		<form method="post">
 			<input name="_method" type="hidden" value="put"> 
 			<input name="videoId" type="hidden" value="${video.id}">
+			Quantity: <select name="stocknum" id="dropdown_menu_${video.stocknum}">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
 			<input type="submit" value="Update">
 		</form>
 
@@ -32,23 +55,11 @@
 		<br />
 	</c:forEach>
 	
-	<h2></h2>
-	<form method="post">
-		Text: <select name="text">
-			<option>Movie 1</option>
-			<option>Movie 2</option>
-			<option>Movie 3</option>
-		</select>
-		Stock: <select name="stocknum">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-		</select>
-		<br />
-		<input type="submit">
-		
+	<h2>------------------------</h2>
+	<form>
+		<input type="submit" value="Return to Store" onclick="history.go(-1)">
 	</form>
+	
+	
 </body>
 </html>
