@@ -3,6 +3,7 @@ h1, h2 {
 	text-align:center;
 }
 
+
 #collection {
 	text-align:center;
 	
@@ -11,6 +12,12 @@ h1, h2 {
 #collection img {
 	width:142px;
 	height:200px;
+}
+
+p#username{
+	text-transform: uppercase;
+	color:green;
+	
 }
 
 #text {
@@ -29,7 +36,7 @@ h1, h2 {
 
 #option1, #option2, #option3, #option4, #option5 {
 	
-	margin-left:90px;
+	margin-left:50px;
 	display:inline;
 }
 

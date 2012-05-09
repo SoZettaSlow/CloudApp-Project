@@ -1,1 +1,1 @@
-create table VIDEO(id serial, text varchar, stocknum int, primary key(id));
+create table VIDEO(id serial, text varchar, stocknum int, owner varchar, primary key(id));
