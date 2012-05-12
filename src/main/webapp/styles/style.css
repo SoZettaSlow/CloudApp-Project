@@ -15,9 +15,8 @@ h1, h2 {
 }
 
 p#username{
-	text-transform: uppercase;
 	color:green;
-	
+	text-transform:capitalize;
 }
 
 #text {

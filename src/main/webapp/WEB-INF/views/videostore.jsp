@@ -32,9 +32,11 @@ $(document).ready(function()
 	<h1>CIT Video Store</h1>
 	<h2>Your Basket</h2>
 	
+<p id="username">
 	User : <security:authentication
 		property="principal.username"/>
 	<a href="j_spring_security_logout"><br/> Logout</a><br/>
+	</p>
 	<div id="total" style="text-align:center">
 		<c:forEach items="${videostore}" var="video" varStatus="row">
 		
@@ -52,13 +54,13 @@ $(document).ready(function()
 						</select>
 				<input type="submit" value="Update">
 			</form>
-	
+			
 			<form method="post">
 				<input name="_method" type="hidden" value="delete"> 
 				<input name="videoId" type="hidden" value="${video.id}">
 				<input type="submit" value="Delete">
 			</form>
-			<br />
+
 		</c:forEach>
 		
 		<h2>------------------------</h2>
